@@ -8,8 +8,12 @@ Class Ravs_Show_All_Scripts extends Debug_Bar_Panel{
 
 
 	function render(){
+		global $wp_scripts;
 		?>
 		<div class="wrap">
+			<p><strong>Registered scripts:</strong>&nbsp;<?php echo count( $wp_scripts->registered ); ?></p>
+			<p><strong>Enqueued scripts:</strong>&nbsp;<?php echo count( $wp_scripts->done ); ?></p>
+
 			<table id="all_enq_scripts">
 				<th>Enqueued</th>
 				<th>Handle</th>
@@ -18,16 +22,13 @@ Class Ravs_Show_All_Scripts extends Debug_Bar_Panel{
 				<th>Depandancies</th>
 				<!-- <th>Data</th> -->
 				<?php
-					global $wp_scripts;
-					$done_scripts = $wp_scripts->done; 
-
 					foreach( $wp_scripts->registered as $handle => $registered ){
 
 						//check if script is enqueued for this visit
 						$list = 'enqueued';
 						$statusClass = '';
 						$enqueued = '';
-						if( in_array( $handle, $done_scripts ) ){
+						if( in_array( $handle,  $wp_scripts->done ) ){
 							$statusClass = ' class="ravs-active"';
 							$enqueued = '&#10003;';
 						}

@@ -8,8 +8,13 @@ Class Ravs_Show_All_Styles extends Debug_Bar_Panel{
 
 
 	function render(){
+		global $wp_styles;
+
 		?>
 		<div class="wrap">
+			<p><strong>Registered styles:</strong>&nbsp;<?php echo count( $wp_styles->registered ); ?></p>
+			<p><strong>Enqueued styles:</strong>&nbsp;<?php echo count( $wp_styles->done ); ?></p>
+
 			<table id="all_enq_scripts">
 				<th>Enqueued</th>
 				<th>Handle</th>
@@ -18,9 +23,6 @@ Class Ravs_Show_All_Styles extends Debug_Bar_Panel{
 				<th>Depandancies</th>
 				<!-- <th>Data</th> -->
 				<?php
-					global $wp_styles;
-					$done_styles = $wp_styles->done; 
-
 					foreach( $wp_styles->registered as $handle => $registered ){
 
 						//check if script is enqueued for this visit
@@ -28,7 +30,7 @@ Class Ravs_Show_All_Styles extends Debug_Bar_Panel{
 						$statusClass = '';
 						$enqueued = '';
 						
-						if( in_array( $handle, $done_styles ) ){
+						if( in_array( $handle, $wp_styles->done ) ){
 							$statusClass = ' class="ravs-active"';
 							$enqueued = '&#10003;';
 						}
