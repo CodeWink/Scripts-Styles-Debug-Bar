@@ -35,6 +35,11 @@ It tells you 1) Enqueued 2) Script Handle 3) src link 4) version and 5) Dependen
 
 You can you it for both sites to debug your script and style files.
 
+== Screenshots ==
+
+1. All scripts panel
+2. All styles panel
+
 
 == Upgrade Notice ==
 * Always use the latest and the greatest for the best experience.
