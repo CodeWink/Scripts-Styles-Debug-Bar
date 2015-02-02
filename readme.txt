@@ -1,5 +1,5 @@
 === What Scripts Styles Debug Bar ===
-Contributors: Ravinder Kumar, Sudeep Kumar Rana
+Contributors: ravinderk, sudeep333
 Tags: Debug, Debug Bar
 Requires at least: 3.1 or higher
 Tested up to: 4.1
